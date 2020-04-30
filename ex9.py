@@ -33,6 +33,12 @@ class Square(RegularPolygon):
     def area(self):
         return self.side * self.side
 
-print("Só existe um tipo de MRO em python, que começa pela classe, no caso Square, depois suas classes pais, na ordem em que elas foram escritas na criação da classe")
-print("Por exemplo: a classe Polygon é subclasse de Shape e Plotter, nessa ordem, então no MRO Shape aparecerá antes de Plotter",end="\n\n")
-print("MRO da classe Square:",Square.mro())
+class Object1 (RegularHexagon,Square):
+    pass
+
+class Object2 (Square,RegularHexagon):
+    pass
+
+print("Nas classes Object, vemos que a ordem das heranças altera o tipo de mro")
+print(Object1.mro())
+print(Object2.mro())

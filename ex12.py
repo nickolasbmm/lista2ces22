@@ -12,7 +12,7 @@ class Point:
 
 print("Poliformismo é quando o classes diferentes podem implementar diferentemente métodos de mesmo nome")
 print("Duck Typing é quando a linguagem executa um método particular de um objeto, independente da sua classe")
-print("Podemos usar a operação de soma como exemplo: 3 + 5 = ",3+5)
+print("Podemos usar a operação de soma como exemplo, para classe int: 3 + 5 = ",3+5)
 
 a = Point(1,2)
 b = Point(2,4)

@@ -20,7 +20,7 @@ def has_clashes(the_board):
             return True
     return False
 
-def find_solutions(n):
+def find_solutions(n,want_to_print=True):
     
     rng = random.Random()
 
@@ -31,25 +31,10 @@ def find_solutions(n):
         rng.shuffle(bd)
         tries+=1
         if not has_clashes(bd):
-            print("Found solultion {0} in {1} tries.".format(bd,tries))
+            if(want_to_print):
+                print("Found solultion {0} in {1} tries.".format(bd,tries))
             tries = 0
             num_found+=1
-
-
-print("Bruteforce to find the size so the calculations are done in less than a minute")
-t1 = time.time()
-t2 = time.time()
-n=3
-t_ant = t2-t1
-while t2-t1 <= 60:
-    t_ant = t2-t1
-    n+=1
-    t1 = time.time()
-    find_solutions(n)
-    t2 = time.time()
-n-=1
-
-print("A board of size {0} runs at time {1} seconds".format(n,t_ant))
 
 
 #Solve for n = 4
@@ -61,3 +46,20 @@ find_solutions(12)
 #Solve for n = 16 
 print("Solutions for n = 16") 
 find_solutions(16)
+
+print("Bruteforce to find the size so the calculations are done in less than a minute")
+t1 = time.time()
+t2 = time.time()
+n=3
+t_ant = t2-t1
+while t2-t1 <= 60:
+    print("A board of size {0} runs at time {1} seconds".format(n,t_ant))
+    t_ant = t2-t1
+    n+=1
+    t1 = time.time()
+    find_solutions(n,False)
+    t2 = time.time()
+print("A board of size {0} runs at time {1} seconds".format(n,t_ant))
+
+n-=1
+print("Answer: Board of size n = ",n)
